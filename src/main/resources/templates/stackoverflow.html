@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>REST</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-<div class="container" style="margin-top: 30px">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body ng-app="springRest">
+
+<div class="container" style="margin-top: 30px" ng-controller="AppCtrl">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -17,17 +20,19 @@
                         <thead>
                         <tr>
                             <th>icon</th>
+                            <th>id</th>
                             <th>website</th>
                             <th>title</th>
                             <th>decription</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>icon</td>
-                            <td>website</td>
-                            <td>title</td>
-                            <td>description</td>
+                        <tr ng-repeat="items in websites">
+                            <td><img ng-src="{{item.iconImageUrl}}"</td>
+                            <td>{{item.id}}</td>
+                            <td>{{item.titles}}</td>
+                            <td>{{item.website}}</td>
+                            <td>{{item.descriptions}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -40,7 +45,5 @@
 
 
 
-<script type="text/javascript" src="/public/js/angular.min.js"></script>
-<script type="text/javascript" src="/public/js/main.js"></script>
 </body>
 </html>
